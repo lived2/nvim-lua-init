@@ -8,6 +8,7 @@
 
 3. If codelldb is failed to launch with exit code 1 due to port missing,
    Add below lines to "custom/rust_config.lua"
+   //```
    rt.setup({
    dap = {  
     adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),  
@@ -15,7 +16,7 @@
    +   port = 32000  
    + }  
   },  
-
+   ```
    
    
    
