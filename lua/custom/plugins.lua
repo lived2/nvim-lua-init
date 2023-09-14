@@ -70,5 +70,11 @@ local plugins = {
       return M
     end,
   },
+  {
+    "simrat39/symbols-outline.nvim",
+    init = function()
+      return require "custom.configs.symbol-outline"
+    end,
+  },
 }
 return plugins
