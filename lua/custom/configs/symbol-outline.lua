@@ -16,7 +16,7 @@ local opts = {
   wrap = false,
   keymaps = { -- These keymaps can be a string or a table for multiple keys
     close = {"<Esc>", "q"},
-    goto_location = "<Cr>",
+    goto_location = {"<Cr>", "<LeftMouse>"},
     focus_location = "o",
     hover_symbol = "<C-space>",
     toggle_preview = "K",
@@ -31,24 +31,24 @@ local opts = {
   lsp_blacklist = {},
   symbol_blacklist = {},
   symbols = {
-    File = { icon = "", hl = "@text.uri" },
-    Module = { icon = "", hl = "@namespace" },
-    Namespace = { icon = "", hl = "@namespace" },
-    Package = { icon = "", hl = "@namespace" },
+    File = { icon = "󰈔", hl = "@text.uri" },
+    Module = { icon = "", hl = "@namespace" },
+    Namespace = { icon = "", hl = "@namespace" },
+    Package = { icon = "󰏗", hl = "@namespace" },
     Class = { icon = "𝓒", hl = "@type" },
     Method = { icon = "ƒ", hl = "@method" },
     Property = { icon = "", hl = "@method" },
-    Field = { icon = "", hl = "@field" },
+    Field = { icon = "󰽐", hl = "@field" },
     Constructor = { icon = "", hl = "@constructor" },
     Enum = { icon = "ℰ", hl = "@type" },
-    Interface = { icon = "ﰮ", hl = "@type" },
+    Interface = { icon = "", hl = "@type" },
     Function = { icon = "", hl = "@function" },
     Variable = { icon = "", hl = "@constant" },
     Constant = { icon = "", hl = "@constant" },
     String = { icon = "𝓐", hl = "@string" },
     Number = { icon = "#", hl = "@number" },
     Boolean = { icon = "⊨", hl = "@boolean" },
-    Array = { icon = "", hl = "@constant" },
+    Array = { icon = "", hl = "@constant" },
     Object = { icon = "⦿", hl = "@type" },
     Key = { icon = "🔐", hl = "@type" },
     Null = { icon = "NULL", hl = "@type" },
@@ -57,9 +57,23 @@ local opts = {
     Event = { icon = "🗲", hl = "@type" },
     Operator = { icon = "+", hl = "@operator" },
     TypeParameter = { icon = "𝙏", hl = "@parameter" },
-    Component = { icon = "", hl = "@function" },
-    Fragment = { icon = "", hl = "@constant" },
+    Component = { icon = "󰡀", hl = "@function" },
+    Fragment = { icon = "󰡀", hl = "@constant" },
   },
 }
 
 require("symbols-outline").setup(opts)
+
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = "*.rs,*.c,*.cpp,*.h,*.hpp,*.go",
+  callback = function()
+    vim.cmd(":SymbolsOutlineOpen")
+  end
+  --pattern = "*",
+  --command = "print('hello')"
+  --command = "NvimTreeOpen"
+  --command = "SymbolsOutlineOpen"
+})
+
+vim.keymap.set("n", "<Leader>so", ':SymbolsOutline<CR>')
+
