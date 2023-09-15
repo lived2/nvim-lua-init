@@ -64,16 +64,5 @@ local opts = {
 
 require("symbols-outline").setup(opts)
 
-vim.api.nvim_create_autocmd('BufReadPost', {
-  pattern = "*.rs,*.c,*.cpp,*.h,*.hpp,*.go",
-  callback = function()
-    vim.cmd(":SymbolsOutlineOpen")
-  end
-  --pattern = "*",
-  --command = "print('hello')"
-  --command = "NvimTreeOpen"
-  --command = "SymbolsOutlineOpen"
-})
-
 vim.keymap.set("n", "<Leader>so", ':SymbolsOutline<CR>')
-
+vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>:wincmd h<CR>')
