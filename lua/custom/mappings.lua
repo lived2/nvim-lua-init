@@ -36,6 +36,9 @@ function Run()
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
     vim.cmd('w!')
     vim.cmd('!cd build/debug ; make -j4 ; ./run.sh')
+  elseif vim.bo.filetype == 'python' then
+    vim.cmd('w!')
+    vim.cmd('!python3 %')
   end
 end
 
