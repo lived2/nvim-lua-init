@@ -25,12 +25,17 @@ vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
 function RunDebug()
   if vim.bo.filetype == 'rust' then
     vim.cmd('RustDebuggable')
+  else
+    vim.cmd('DapContinue')
   end
 end
 
 function Run()
   if vim.bo.filetype == 'rust' then
     vim.cmd('RustRunnables')
+  elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
+    vim.cmd('w!')
+    vim.cmd('!cd build/debug ; make -j4 ; ./run.sh')
   end
 end
 
