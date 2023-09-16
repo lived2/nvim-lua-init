@@ -5,6 +5,7 @@ vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 -- Fn keys
+vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>:wincmd h<CR>')
 vim.keymap.set("n", "<F5>", '<cmd>:lua RunDebug()<CR>')
 vim.keymap.set("i", "<F5>", '<ESC><cmd>:lua RunDebug()<CR>')
 vim.keymap.set("n", "<F6>", ':DapToggleBreakpoint<CR>')
@@ -44,6 +45,36 @@ M.crates = {
       end,
       "Update crates"
     }
+  }
+}
+
+M.dap = {
+  plugin = true,
+  n = {
+    ["<Leader>dt"] = {
+      "<cmd> DapToggleBreakpoint <CR>",
+      "Add breakpoint at line",
+    },
+    ["<Leader>dr"] = {
+      "<cmd> DapContinue <CR>",
+      "Start or continue the debugger",
+    },
+    ["<Leader>dx"] = {
+      "<cmd> DapTerminate <CR>",
+      "Terminate the debugger",
+    },
+    ["<Leader>do"] = {
+      "<cmd> DapStepOver <CR>",
+      "Step Over",
+    },
+    ["<Leader>di"] = {
+      "<cmd> DapStepInto <CR>",
+      "Step Into",
+    },
+    ["<Leader>du"] = {
+      "<cmd> DapStepOut <CR>",
+      "Step Out",
+    },
   }
 }
 

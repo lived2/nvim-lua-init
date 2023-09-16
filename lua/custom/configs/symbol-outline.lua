@@ -65,4 +65,3 @@ local opts = {
 require("symbols-outline").setup(opts)
 
 vim.keymap.set("n", "<Leader>so", ':SymbolsOutline<CR>')
-vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>:wincmd h<CR>')

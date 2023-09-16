@@ -15,3 +15,5 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   end,
 })
 
+local opt = vim.opt
+opt.clipboard = ""

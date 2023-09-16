@@ -4,6 +4,8 @@ local plugins = {
     opts = {
       ensure_installed = {
         "rust-analyzer",
+        "clangd",
+        "codelldb",
       },
     },
   },
@@ -40,11 +42,42 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
+    config = function(_, _)
+      require("core.utils").load_mappings("dap")
+    end,
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
     init = function()
       return require "custom.configs.dap_config"
+    end,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+      ensure_installed = {
+        "codelldb",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      return require "custom.configs.treesitter"
+    end,
+    config = function(_, opts)
+      dofile(vim.g.base46_cache .. "syntax")
+      require("nvim-treesitter.configs").setup(opts)
     end,
   },
   {
