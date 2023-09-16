@@ -22,9 +22,15 @@ vim.keymap.set('n', '<F12>', ':qall<CR>')
 vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
 
 
+function RunDebugPython()
+  require('dap-python').test_method()
+end
+
 function RunDebug()
   if vim.bo.filetype == 'rust' then
     vim.cmd('RustDebuggable')
+  elseif vim.bo.filetype == 'python' then
+    RunDebugPython()
   else
     vim.cmd('DapContinue')
   end
@@ -83,6 +89,17 @@ M.dap = {
       "<cmd> DapStepOut <CR>",
       "Step Out",
     },
+  }
+}
+
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<Leader>dpr"] = {
+      function()
+        require('dap-python').test_method()
+      end
+    }
   }
 }
 
