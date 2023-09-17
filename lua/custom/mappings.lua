@@ -32,7 +32,7 @@ function RunDebug()
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
     local bin = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
     local cmd = "!cp build/debug/" .. bin .. " ."
-    vim.cmd('!w')
+    vim.cmd('w')
     vim.cmd('!cd build/debug ; make -j4')
     vim.cmd(cmd)
     vim.cmd('DapContinue')
