@@ -29,6 +29,13 @@ end
 function RunDebug()
   if vim.bo.filetype == 'rust' then
     vim.cmd('RustDebuggable')
+  elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
+    local bin = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+    local cmd = "!cp build/debug/" .. bin .. " ."
+    vim.cmd('!w')
+    vim.cmd('!cd build/debug ; make -j4')
+    vim.cmd(cmd)
+    vim.cmd('DapContinue')
   elseif vim.bo.filetype == 'python' then
     RunDebugPython()
   else
