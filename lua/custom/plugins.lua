@@ -133,5 +133,11 @@ local plugins = {
       return require "custom.configs.symbol-outline"
     end,
   },
+  {
+    "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    init = function()
+      require('toggle_lsp_diagnostics').init()
+    end,
+  },
 }
 return plugins
