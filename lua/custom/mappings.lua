@@ -6,7 +6,7 @@ vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 -- Fn keys
 vim.keymap.set("n", "<F3>", ':ToggleDiag<CR>')
-vim.keymap.set("i", "<F3>", '<ESC>:ToggleDiag<CR>')
+vim.keymap.set("i", "<F3>", '<ESC>:ToggleDiag<CR>a')
 
 vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>')
 vim.keymap.set("i", "<F4>", '<ESC>:SymbolsOutline<CR>')
