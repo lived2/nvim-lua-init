@@ -1,8 +1,8 @@
 -- Navigate vim panes better
-vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
+vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 
 -- Fn keys
 vim.keymap.set("n", "<F3>", ':ToggleDiag<CR>')
@@ -28,6 +28,10 @@ vim.keymap.set('i', '<F10>', '<ESC>:w!<CR>')
 
 vim.keymap.set('n', '<F12>', ':qall<CR>')
 vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
+
+-- Ctrl + S: save
+vim.keymap.set('n', '<C-s>', ':w!<CR>')
+vim.keymap.set('i', '<C-s>', '<ESC>:w!<CR>')
 
 
 function RunDebugPython()
