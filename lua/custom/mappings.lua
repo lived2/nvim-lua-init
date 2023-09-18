@@ -122,4 +122,28 @@ M.dap_python = {
   }
 }
 
+M.nvterm = {
+  plugin = true,
+
+  t = {
+    -- toggle in terminal mode
+    ["<F2>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+  },
+
+  n = {
+    -- toggle in normal mode
+    ["<F2>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+  }
+}
+
 return M
