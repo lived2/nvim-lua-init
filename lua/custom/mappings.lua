@@ -21,7 +21,7 @@ vim.keymap.set("n", "<F7>", ':DapTerminate<CR>')
 vim.keymap.set("n", "<F8>", ':DapStepOver<CR>')
 
 vim.keymap.set("n", "<F9>", '<cmd>:lua Run()<CR>')
-vim.keymap.set("i", "<F9>", '<ESC><cmd>:lua Run()<CR>')
+vim.keymap.set("i", "<F9>", '<ESC>:w!<CR><cmd>:lua Run()<CR>')
 
 vim.keymap.set('n', '<F10>', ':w!<CR>')
 vim.keymap.set('i', '<F10>', '<ESC>:w!<CR>')
