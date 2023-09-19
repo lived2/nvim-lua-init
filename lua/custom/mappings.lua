@@ -57,7 +57,8 @@ end
 
 function Run()
   if vim.bo.filetype == 'rust' then
-    vim.cmd('RustRunnables')
+    --vim.cmd('RustRunnables')
+    vim.cmd('!cargo run')
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
     vim.cmd('w!')
     vim.cmd('!cd build/debug ; make -j4 ; ./run.sh')
