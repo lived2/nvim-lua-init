@@ -12,7 +12,7 @@ vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>')
 vim.keymap.set("i", "<F4>", '<ESC>:SymbolsOutline<CR>')
 
 vim.keymap.set("n", "<F5>", '<cmd>:lua RunDebug()<CR>')
-vim.keymap.set("i", "<F5>", '<ESC><cmd>:lua RunDebug()<CR>')
+vim.keymap.set("i", "<F5>", '<ESC>:w!<CR><cmd>:lua RunDebug()<CR>')
 
 vim.keymap.set("n", "<F6>", ':DapToggleBreakpoint<CR>')
 vim.keymap.set("i", "<F6>", '<ESC>:DapToggleBreakpoint<CR>')
@@ -43,9 +43,8 @@ function RunDebug()
     vim.cmd('RustDebuggable')
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
     local bin = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-    local cmd = "!cp build/debug/" .. bin .. " ."
-    vim.cmd('w')
-    vim.cmd('!cd build/debug ; make -j4')
+    local cmd = "!cp target/debug/" .. bin .. " ."
+    vim.cmd('!cd target/debug ; make -j4')
     vim.cmd(cmd)
     vim.cmd('DapContinue')
   elseif vim.bo.filetype == 'python' then
@@ -60,10 +59,8 @@ function Run()
     --vim.cmd('RustRunnables')
     vim.cmd('!cargo run')
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
-    vim.cmd('w!')
-    vim.cmd('!cd build/debug ; make -j4 ; ./run.sh')
+    vim.cmd('!cd target/debug ; make -j4 ; ./run.sh')
   elseif vim.bo.filetype == 'python' then
-    vim.cmd('w!')
     vim.cmd('!python3 %')
   end
 end
