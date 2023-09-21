@@ -21,7 +21,7 @@ autocmd('BufEnter', {
       opt.tabstop = 2
       opt.softtabstop = 2
     end
-    local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line('$')
+    local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) <= vim.fn.line('$')
 
     if valid_line then
       vim.cmd([[normal! g`"]])
