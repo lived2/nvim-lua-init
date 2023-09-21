@@ -15,6 +15,11 @@ autocmd('BufEnter', {
       opt.shiftwidth = 4
       opt.tabstop = 4
       opt.softtabstop = 4
+    else
+      local opt = vim.opt
+      opt.shiftwidth = 2
+      opt.tabstop = 2
+      opt.softtabstop = 2
     end
     local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line('$')
 

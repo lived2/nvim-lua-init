@@ -5,8 +5,8 @@ vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
 vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
 
 -- Fn keys
-vim.keymap.set("n", "<F3>", ':ToggleDiag<CR>')
-vim.keymap.set("i", "<F3>", '<ESC>:ToggleDiag<CR>a')
+vim.keymap.set("n", "<F3>", '<cmd>:lua ReduceLSPDiag()<CR>')
+vim.keymap.set("i", "<F3>", '<ESC><cmd>:lua ReduceLSPDiag()<CR>a')
 
 vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>')
 vim.keymap.set("i", "<F4>", '<ESC>:SymbolsOutline<CR>')
@@ -33,6 +33,26 @@ vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
 vim.keymap.set('n', '<C-s>', ':w!<CR>')
 vim.keymap.set('i', '<C-s>', '<ESC>:w!<CR>')
 
+LspDiagReduced = 1
+
+function ReduceLSPDiag()
+  -- Configure LSP diagnostic level
+  if LspDiagReduced == 1 then
+    LspDiagReduced = 0
+    vim.diagnostic.config({
+      virtual_text = {severity = {min = vim.diagnostic.severity.HINT}},
+      signs = {severity = {min = vim.diagnostic.severity.HINT}},
+      underline = {severity = {min = vim.diagnostic.severity.HINT}},
+    })
+  else
+    LspDiagReduced = 1
+    vim.diagnostic.config({
+      virtual_text = {severity = {min = vim.diagnostic.severity.ERROR}},
+      signs = {severity = {min = vim.diagnostic.severity.ERROR}},
+      underline = {severity = {min = vim.diagnostic.severity.ERROR}},
+    })
+  end
+end
 
 function RunDebugPython()
   require('dap-python').test_method()
