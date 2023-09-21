@@ -10,6 +10,11 @@ autocmd('BufEnter', {
   callback = function()
     if vim.bo.filetype == "gitcommit" then
       return
+    elseif vim.bo.filetype == "rust" then
+      local opt = vim.opt
+      opt.shiftwidth = 4
+      opt.tabstop = 4
+      opt.softtabstop = 4
     end
     local valid_line = vim.fn.line([['"]]) >= 1 and vim.fn.line([['"]]) < vim.fn.line('$')
 
