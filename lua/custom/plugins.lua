@@ -137,20 +137,7 @@ local plugins = {
   {
     "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
     init = function()
-      if LspDiagReduced == 1 then
-        vim.diagnostic.config({
-          virtual_text = {severity = {min = vim.diagnostic.severity.ERROR}},
-          signs = {severity = {min = vim.diagnostic.severity.ERROR}},
-          underline = {severity = {min = vim.diagnostic.severity.ERROR}},
-        })
-      else
-        vim.diagnostic.config({
-          virtual_text = {severity = {min = vim.diagnostic.severity.HINT}},
-          signs = {severity = {min = vim.diagnostic.severity.HINT}},
-          underline = {severity = {min = vim.diagnostic.severity.HINT}},
-        })
-      end
-      require('toggle_lsp_diagnostics').init(vim.diagnostic.config())
+      require('toggle_lsp_diagnostics').init()
     end,
   },
 }

@@ -26,8 +26,27 @@ autocmd('BufEnter', {
     if valid_line then
       vim.cmd([[normal! g`"]])
     end
+
+    if LspDiagReducedChanged == 1 then
+      LspDiagReducedChanged = 0
+      if LspDiagReduced == 0 then
+        vim.diagnostic.config({
+          virtual_text = {severity = {min = vim.diagnostic.severity.HINT}},
+          signs = {severity = {min = vim.diagnostic.severity.HINT}},
+          underline = {severity = {min = vim.diagnostic.severity.HINT}},
+        })
+      else
+        vim.diagnostic.config({
+          virtual_text = {severity = {min = vim.diagnostic.severity.ERROR}},
+          signs = {severity = {min = vim.diagnostic.severity.ERROR}},
+          underline = {severity = {min = vim.diagnostic.severity.ERROR}},
+        })
+      end
+    end
   end,
 })
 
 local opt = vim.opt
 opt.clipboard = ""
+
+LspDiagReduced = 1
