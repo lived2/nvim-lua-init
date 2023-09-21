@@ -49,4 +49,4 @@ autocmd('BufEnter', {
 local opt = vim.opt
 opt.clipboard = ""
 
-LspDiagReduced = 1
+LspDiagReduced = 0
