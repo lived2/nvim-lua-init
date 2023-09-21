@@ -33,7 +33,7 @@ vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
 vim.keymap.set('n', '<C-s>', ':w!<CR>')
 vim.keymap.set('i', '<C-s>', '<ESC>:w!<CR>')
 
-LspDiagReduced = 1
+LspDiagReduced = 0
 
 function ReduceLSPDiag()
   -- Configure LSP diagnostic level
