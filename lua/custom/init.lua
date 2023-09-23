@@ -1,4 +1,10 @@
 -- ---
+-- Global
+local opt = vim.opt
+opt.clipboard = ""
+
+LspDiagReduced = 0
+-- ---
 -- When editing a file, always jump to the last known cursor position.
 -- Don't do it when the position is invalid, when inside an event handler
 -- (happens when dropping a file on gvim) and for a commit message (it's
@@ -11,12 +17,10 @@ autocmd('BufEnter', {
     if vim.bo.filetype == "gitcommit" then
       return
     elseif vim.bo.filetype == "rust" then
-      local opt = vim.opt
       opt.shiftwidth = 4
       opt.tabstop = 4
       opt.softtabstop = 4
     else
-      local opt = vim.opt
       opt.shiftwidth = 2
       opt.tabstop = 2
       opt.softtabstop = 2
@@ -46,7 +50,23 @@ autocmd('BufEnter', {
   end,
 })
 
-local opt = vim.opt
-opt.clipboard = ""
+local function open_nvim_tree(data)
+  -- buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
 
-LspDiagReduced = 0
+  -- buffer is a [No Name]
+  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+
+  if not directory and not no_name then
+    return
+  end
+
+  if directory then
+    -- change to the directory
+    vim.cmd.cd(data.file)
+  end
+
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+autocmd('VimEnter', { callback = open_nvim_tree })
