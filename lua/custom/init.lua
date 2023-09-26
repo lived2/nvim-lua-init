@@ -16,7 +16,7 @@ autocmd('BufEnter', {
   callback = function()
     if vim.bo.filetype == "gitcommit" then
       return
-    elseif vim.bo.filetype == "rust" then
+    elseif vim.bo.filetype == "rust" or vim.bo.filetype == "cpp" then
       opt.shiftwidth = 4
       opt.tabstop = 4
       opt.softtabstop = 4
