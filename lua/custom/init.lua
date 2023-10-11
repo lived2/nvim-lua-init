@@ -70,3 +70,8 @@ local function open_nvim_tree(data)
   require("nvim-tree.api").tree.open()
 end
 autocmd('VimEnter', { callback = open_nvim_tree })
+
+if vim.g.neovide then
+  -- Put anything you want to happen only in Neovide here
+  vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+end
