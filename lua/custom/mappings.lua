@@ -169,6 +169,14 @@ M.general = {
   v = {
     ["<M-c>"] = { '"*y', "Copy" },
   },
+  n = {
+    ["<C-F11>"] = {
+      function()
+        vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
+      end,
+      "Toggle Fullscreen"
+    },
+  },
 }
 
 return M
