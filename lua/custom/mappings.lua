@@ -29,6 +29,14 @@ vim.keymap.set('i', '<F10>', '<ESC>:w!<CR>')
 
 vim.keymap.set('n', '<F12>', ':qall<CR>')
 vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
+
+-- Scroll reverse for MacBook only
+--[[
+if vim.g.neovide then
+  vim.keymap.set({'n', 'i'}, '<ScrollWheelDown>', '<ScrollWheelDown>')
+  vim.keymap.set({'n', 'i'}, '<ScrollWheelUp>', '<ScrollWheelUp>')
+end
+]]
 -- Key mapping END
 
 
