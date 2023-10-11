@@ -8,7 +8,7 @@ vnoremap <C-c> "*y
 "inoremap <D-v> <C-r>+
 inoremap <C-v> <C-r>+
 inoremap <S-Insert> <C-r>+
-cnoremap <C-V> <c-r>+
+cnoremap <C-v> <C-r>+
 cnoremap <S-Insert> <C-r>+
 " Inverse whell for macbook
 "noremap <ScrollWheelDown> <ScrollWheelUp>
