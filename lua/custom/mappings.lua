@@ -1,3 +1,4 @@
+-- Key mapping
 -- Navigate vim panes better
 vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
 vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
@@ -28,10 +29,8 @@ vim.keymap.set('i', '<F10>', '<ESC>:w!<CR>')
 
 vim.keymap.set('n', '<F12>', ':qall<CR>')
 vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
+-- Key mapping END
 
--- Ctrl + S: save
---vim.keymap.set('n', '<C-s>', ':w!<CR>')
---vim.keymap.set('i', '<C-s>', '<ESC>:w!<CR>')
 
 LspDiagReducedChanged = 1
 
@@ -163,6 +162,13 @@ M.nvterm = {
       "Toggle horizontal term",
     },
   }
+}
+
+-- For macOS only
+M.general = {
+  v = {
+    ["<M-c>"] = { '"*y', "Copy" },
+  },
 }
 
 return M
