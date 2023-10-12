@@ -14,7 +14,7 @@ local autocmd = vim.api.nvim_create_autocmd
 autocmd('BufEnter', {
   --group = vim.g.user.event,
   callback = function()
-    if vim.bo.filetype == "gitcommit" then
+    if vim.bo.filetype == "gitcommit" or vim.bo.filetype == "Outline" then
       return
     elseif vim.bo.filetype == "rust" or vim.bo.filetype == "cpp" then
       opt.shiftwidth = 4
