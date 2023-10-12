@@ -11,7 +11,7 @@ LspDiagReduced = 0
 -- likely a different one than last time).
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd('BufEnter', {
+autocmd('BufReadPost', {
   --group = vim.g.user.event,
   callback = function()
     if vim.bo.filetype == "gitcommit" or vim.bo.filetype == "Outline" then
