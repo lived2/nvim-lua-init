@@ -172,12 +172,12 @@ M.nvterm = {
   }
 }
 
--- For macOS only
 M.general = {
   v = {
-    ["<M-c>"] = { '"*y', "Copy" },
+    ["<M-c>"] = { '"*y', "Copy" }, -- It's for MacOS
   },
   n = {
+    ["<C-c>"] = { '"*y', "Copy" },
     ["<C-F11>"] = {
       function()
         vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
