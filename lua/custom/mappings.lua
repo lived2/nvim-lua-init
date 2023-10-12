@@ -175,6 +175,10 @@ M.nvterm = {
 M.general = {
   v = {
     ["<M-c>"] = { '"*y', "Copy" }, -- It's for MacOS
+    ["<C-c>"] = { '"*y', "Copy" },
+  },
+  i = {
+    ["<C-v>"] = { "<C-r>+", "Paste" },
   },
   n = {
     ["<C-c>"] = { '"*y', "Copy" },
