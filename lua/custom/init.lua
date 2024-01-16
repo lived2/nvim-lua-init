@@ -16,6 +16,7 @@ local ignore_buftype = { "quickfix", "nofile", "help" }
 local ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" }
 
 local function run()
+  vim.opt_local.formatoptions:remove({ 'r', 'o' })
   if vim.tbl_contains(ignore_buftype, vim.bo.buftype) then
     return
   end
