@@ -46,6 +46,9 @@ local plugins = {
     'nvim-lua/plenary.nvim',
   },
   {
+    "nvim-neotest/nvim-nio"
+  },
+  {
     "mfussenegger/nvim-dap",
     config = function(_, _)
       require("core.utils").load_mappings("dap")
