@@ -46,9 +46,6 @@ local plugins = {
     'nvim-lua/plenary.nvim',
   },
   {
-    "nvim-neotest/nvim-nio"
-  },
-  {
     "mfussenegger/nvim-dap",
     config = function(_, _)
       require("core.utils").load_mappings("dap")
@@ -79,6 +76,7 @@ local plugins = {
     event = "VeryLazy",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
     },
     init = function()
       return require "custom.configs.dap_config"
