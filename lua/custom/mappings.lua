@@ -1,40 +1,42 @@
 -- Key mapping
 -- Navigate vim panes better
-vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
-vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
-vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
-vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
+local map = vim.keymap.set
+
+map('n', '<C-k>', ':wincmd k<CR>')
+map('n', '<C-j>', ':wincmd j<CR>')
+map('n', '<C-h>', ':wincmd h<CR>')
+map('n', '<C-l>', ':wincmd l<CR>')
 
 -- Fn keys
-vim.keymap.set("n", "<F3>", '<cmd>:lua ReduceLSPDiag()<CR>')
-vim.keymap.set("i", "<F3>", '<ESC><cmd>:lua ReduceLSPDiag()<CR>a')
+map("n", "<F3>", '<cmd>:lua ReduceLSPDiag()<CR>')
+map("i", "<F3>", '<ESC><cmd>:lua ReduceLSPDiag()<CR>a')
 
-vim.keymap.set("n", "<F4>", ':SymbolsOutline<CR>')
-vim.keymap.set("i", "<F4>", '<ESC>:SymbolsOutline<CR>')
+map("n", "<F4>", ':SymbolsOutline<CR>')
+map("i", "<F4>", '<ESC>:SymbolsOutline<CR>')
 
-vim.keymap.set("n", "<F5>", '<cmd>:lua RunDebug()<CR>')
-vim.keymap.set("i", "<F5>", '<ESC>:w!<CR><cmd>:lua RunDebug()<CR>')
+map("n", "<F5>", '<cmd>:lua RunDebug()<CR>')
+map("i", "<F5>", '<ESC>:w!<CR><cmd>:lua RunDebug()<CR>')
 
-vim.keymap.set("n", "<F6>", ':DapToggleBreakpoint<CR>')
-vim.keymap.set("i", "<F6>", '<ESC>:DapToggleBreakpoint<CR>')
+map("n", "<F6>", ':DapToggleBreakpoint<CR>')
+map("i", "<F6>", '<ESC>:DapToggleBreakpoint<CR>')
 
-vim.keymap.set("n", "<F7>", ':DapTerminate<CR>')
-vim.keymap.set("n", "<F8>", ':DapStepOver<CR>')
+map("n", "<F7>", ':DapTerminate<CR>')
+map("n", "<F8>", ':DapStepOver<CR>')
 
-vim.keymap.set("n", "<F9>", '<cmd>:lua Run()<CR>')
-vim.keymap.set("i", "<F9>", '<ESC>:w!<CR><cmd>:lua Run()<CR>')
+map("n", "<F9>", '<cmd>:lua Run()<CR>')
+map("i", "<F9>", '<ESC>:w!<CR><cmd>:lua Run()<CR>')
 
-vim.keymap.set('n', '<F10>', ':w!<CR>')
-vim.keymap.set('i', '<F10>', '<ESC>:w!<CR>')
+map('n', '<F10>', ':w!<CR>')
+map('i', '<F10>', '<ESC>:w!<CR>')
 
-vim.keymap.set('n', '<F12>', ':qall<CR>')
-vim.keymap.set('i', '<F12>', '<ESC>:qall<CR>')
+map('n', '<F12>', ':q<CR>')
+map('i', '<F12>', '<ESC>:q<CR>')
 
 -- Scroll reverse for MacBook only
 --[[
 if vim.g.neovide then
-  vim.keymap.set({'n', 'i'}, '<ScrollWheelDown>', '<ScrollWheelDown>')
-  vim.keymap.set({'n', 'i'}, '<ScrollWheelUp>', '<ScrollWheelUp>')
+  map({'n', 'i'}, '<ScrollWheelDown>', '<ScrollWheelDown>')
+  map({'n', 'i'}, '<ScrollWheelUp>', '<ScrollWheelUp>')
 end
 ]]
 -- Key mapping END
