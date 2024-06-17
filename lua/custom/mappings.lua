@@ -193,4 +193,13 @@ M.general = {
   },
 }
 
+M.nvimtree = {
+  n = {
+    ["<Leader>fe"] = {
+      "<cmd> NvimTreeToggle <CR>",
+      "NvimTreeToggle",
+    },
+  },
+}
+
 return M
