@@ -70,7 +70,8 @@ autocmd('BufEnter', {
       opt.softtabstop = 2
     end
 
-    if vim.bo.filetype == "text" then
+    local extension = vim.fn.expand('%:e')
+    if vim.bo.filetype == "text" or extension == "log" or extension == "dump" or extension == "lst" then
       require('cmp').setup.buffer { enabled = false }
     end
     -- Change tab size for specific path
@@ -130,5 +131,10 @@ autocmd('VimEnter', { callback = open_nvim_tree })
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
-  vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+  local os = vim.loop.os_uname().sysname
+  if os == "Windows_NT" then
+    vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+  else
+    vim.o.guifont = "JetBrainsMono Nerd Font:h13"
+  end
 end
