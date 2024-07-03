@@ -69,6 +69,10 @@ autocmd('BufEnter', {
       opt.tabstop = 2
       opt.softtabstop = 2
     end
+
+    if vim.bo.filetype == "text" then
+      require('cmp').setup.buffer { enabled = false }
+    end
     -- Change tab size for specific path
     --[[
     local path = vim.fn.getcwd()
