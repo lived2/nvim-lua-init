@@ -29,8 +29,8 @@ map("i", "<F9>", '<ESC>:w!<CR><cmd>:lua Run()<CR>')
 map('n', '<F10>', ':w!<CR>')
 map('i', '<F10>', '<ESC>:w!<CR>')
 
-map('n', '<F12>', ':q<CR>')
-map('i', '<F12>', '<ESC>:q<CR>')
+map('n', '<F12>', ':qall<CR>')
+map('i', '<F12>', '<ESC>:qall<CR>')
 
 -- Scroll reverse for MacBook only
 --[[
