@@ -190,6 +190,10 @@ M.general = {
       end,
       "Toggle Fullscreen"
     },
+    ["<Leader>cf"] = {
+      "<cmd> echo expand('%:p') <CR>",
+      "Current File Path",
+    },
   },
 }
 
