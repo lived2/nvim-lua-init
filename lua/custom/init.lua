@@ -105,6 +105,7 @@ autocmd('BufReadPost', {
         })
       end
     end
+    print(vim.fn.expand('%:p'))
   end,
 })
 
