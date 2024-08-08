@@ -138,4 +138,6 @@ if vim.g.neovide then
   else
     vim.o.guifont = "JetBrainsMono Nerd Font:h13"
   end
+else
+  vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 end
