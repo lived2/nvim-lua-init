@@ -2,6 +2,7 @@
 -- Global
 local opt = vim.opt
 opt.clipboard = ""
+opt.wrapscan = false
 
 LspDiagReduced = 0
 -- ---
