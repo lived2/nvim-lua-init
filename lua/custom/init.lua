@@ -3,6 +3,7 @@
 local opt = vim.opt
 opt.clipboard = ""
 opt.wrapscan = false
+opt.scrolloff = 10
 
 LspDiagReduced = 0
 -- ---
