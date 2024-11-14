@@ -141,5 +141,45 @@ local plugins = {
       require('toggle_lsp_diagnostics').init()
     end,
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    init = function()
+      local colors = require("tokyonight.colors").setup()
+      require("scrollbar").setup({
+        handle = {
+          color = colors.blue,
+        },
+        marks = {
+          Search = { color = colors.orange },
+          Error = { color = colors.error },
+          Warn = { color = colors.warning },
+          Info = { color = colors.info },
+          Hint = { color = colors.hint },
+          Misc = { color = colors.purple },
+        }
+      })
+    end,
+    config = function()
+      require("scrollbar.handlers.gitsigns").setup()
+    end,
+  },
+  {
+    "kevinhwang91/nvim-hlslens",
+    init = function()
+      return require "custom.configs.hlslens"
+    end,
+    config = function()
+      -- require('hlslens').setup() is not required
+      require("scrollbar.handlers.search").setup({
+        -- hlslens config overrides
+      })
+    end,
+  },
 }
 return plugins
