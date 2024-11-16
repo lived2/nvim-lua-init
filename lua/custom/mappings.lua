@@ -65,7 +65,12 @@ function ReduceLSPDiag()
 end
 
 function RunDebugPython()
+  local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+  require("dap-python").setup(path)
+  require("core.utils").load_mappings("dap_python")
   require('dap-python').test_method()
+  --require('dap-python').debug_selection()
+  --require('dap-python').test_class()
 end
 
 function RunDebug()
