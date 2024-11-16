@@ -11,8 +11,8 @@ map('n', '<C-l>', ':wincmd l<CR>')
 map("n", "<F3>", '<cmd>:lua ReduceLSPDiag()<CR>')
 map("i", "<F3>", '<ESC><cmd>:lua ReduceLSPDiag()<CR>a')
 
-map("n", "<F4>", ':SymbolsOutline<CR>')
-map("i", "<F4>", '<ESC>:SymbolsOutline<CR>')
+map("n", "<F4>", ':Outline<CR>')
+map("i", "<F4>", '<ESC>:Outline<CR>')
 
 map("n", "<F5>", '<cmd>:lua RunDebug()<CR>')
 map("i", "<F5>", '<ESC>:w!<CR><cmd>:lua RunDebug()<CR>')
@@ -70,7 +70,7 @@ end
 
 function RunDebug()
   if vim.bo.filetype == 'rust' then
-    vim.cmd('RustDebuggable')
+    vim.cmd.RustLsp('debug')
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
     local bin = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
     local cmd = "!cp target/debug/" .. bin .. " ."
