@@ -200,6 +200,14 @@ M.general = {
       "<cmd> echo expand('%:p') <CR>",
       "Current File Path",
     },
+    -- close buffer + hide terminal buffer
+    ["<C-w>"] = {
+      function()
+        require("nvchad.tabufline").close_buffer()
+      end,
+      "Close buffer",
+    },
+    ["<C-x>"] = { ':q<CR>', "Close Window" },
   },
 }
 
