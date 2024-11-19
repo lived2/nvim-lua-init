@@ -121,6 +121,9 @@ local function open_nvim_tree(data)
   if not directory and not no_name then
     return
   end
+  if vim.g.neovide then
+    return
+  end
 
   if directory then
     -- change to the directory
