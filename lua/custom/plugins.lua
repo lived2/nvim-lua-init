@@ -151,6 +151,9 @@ local plugins = {
     },
     opts = {
       -- Your setup opts here
+      keymaps = {
+        goto_location = {'<Cr>', '<LeftMouse>'},
+      },
     },
   },
   {
