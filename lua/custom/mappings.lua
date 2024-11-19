@@ -75,7 +75,8 @@ end
 
 function RunDebug()
   if vim.bo.filetype == 'rust' then
-    vim.cmd.RustLsp('debug')
+    --vim.cmd.RustLsp('debug')
+    vim.cmd.RustLsp('debuggables')
   elseif vim.bo.filetype == 'cpp' or vim.bo.filetype == 'c' then
     local bin = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
     local cmd = "!cp target/debug/" .. bin .. " ."
