@@ -189,7 +189,7 @@ M.general = {
   i = {
     ["<C-v>"] = { "<C-r>+", "Paste" },
     -- save
-    ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
+    ["<C-s>"] = { "<ESC>:w <CR>", "Save file" },
   },
   n = {
     ["<C-c>"] = { '"*y', "Copy" },
