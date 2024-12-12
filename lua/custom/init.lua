@@ -4,7 +4,7 @@ local opt = vim.opt
 opt.clipboard = ""
 opt.wrapscan = false
 opt.scrolloff = 10
-vim.lsp.inlay_hint.enable(true)
+--vim.lsp.inlay_hint.enable(true)
 
 LspDiagReduced = 0
 -- ---
