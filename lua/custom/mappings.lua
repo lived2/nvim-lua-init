@@ -211,6 +211,12 @@ M.general = {
       "Close buffer",
     },
     ["<C-x>"] = { ':q<CR>', "Close Window" },
+    ["<Leader>i"] = {
+      function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+      end,
+      "Toggle Inlay Hints",
+    },
   },
 }
 
